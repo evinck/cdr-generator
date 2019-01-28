@@ -2,6 +2,7 @@ package model
 import com.github.nscala_time.time.Imports._
 
 import java.util.Random
+import scala.collection.mutable.LinkedHashMap
 
 abstract class CDRType
 object SMS extends CDRType
@@ -139,7 +140,7 @@ class CDR(
 	def header(separator: String): String = this.toMap().keys.mkString(separator)
 
 	private def toMap() = {
-		Map(
+		LinkedHashMap(
 			"MSISDN_1" -> fromUser.id.toString,
 			"MSISDN_2" -> toUser.id.toString,
 			"CELL_1" -> fromCell.id,
