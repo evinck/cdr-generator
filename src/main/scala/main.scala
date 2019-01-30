@@ -15,9 +15,9 @@ object CDRSimulation{
 		val sim = new BasicSimulator(
 			new BasicCellsGenerator(10),
 			new HarcodedOperatorsGenerator(),
-			new BasicUsersGenerator(50),
+			new BasicUsersGenerator(1000000000),
 			new RandomSocialNetworkGenerator()
 		)
-		sim.simulate(new DateTime).map(_.toString).saveAsTextFile("test.txt")
+		sim.simulate(new DateTime).map(_.toString).saveAsTextFile("generated-cdrs")
 	}
 }
