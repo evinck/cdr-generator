@@ -43,6 +43,10 @@ To generate the scala doc (in target scala-../api) :
 
 	sbt doc
 
+To run with spark/yarn-cluster you need to generate a "fat jar"
+
+sbt assembly 
+
 # Existing implementation step
 **CellsGenerator** :
 

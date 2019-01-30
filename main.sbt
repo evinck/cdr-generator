@@ -2,11 +2,11 @@ name := "CDR-Generator"
 
 version := "1.0"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.5"
 
-libraryDependencies += "org.apache.spark" %% "spark-core" % "1.0.0"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.0" % "provided"
 
-libraryDependencies += "org.apache.spark" %% "spark-graphx" % "1.0.0"
+libraryDependencies += "org.apache.spark" %% "spark-graphx" % "1.6.0" % "provided"
 
 libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.2.0"
 
