@@ -41,7 +41,7 @@ class BasicSimulator(
 
 		val cdrs = socialNetwork.edges.flatMap{ 
 			case Edge(a, b, Relation(userA, userB))=>
-				val numberOfCDR = rand.nextInt(10)
+				val numberOfCDR = rand.nextInt(3)
 				(0 to numberOfCDR).map(_ =>
 					randomCDR(userA, userB, day)
 				)
@@ -59,8 +59,7 @@ class BasicSimulator(
 	}
 
 	def randomCDR(userA: User, userB: User, day: DateTime): CDR = {
-		val date = day.hour(rand.nextInt(11)+1).
-		withSecondOfMinute(rand.nextInt(59)+1)
+		val date = day.hour(rand.nextInt(24)).minute(rand.nextInt(60)).withSecondOfMinute(rand.nextInt(60))
 		val cdrType = if(rand.nextDouble < 0.5) SMS else Call
 		val duration = if(cdrType == SMS) 0 else rand.nextInt(1000)
 		val cellA = userA.where(date)

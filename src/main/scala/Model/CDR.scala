@@ -148,7 +148,6 @@ class CDR(
 			"OPERATOR_1" -> fromUser.operator.name,
 			"OPERATOR_2" -> toUser.operator.name,
 			"DURATION" -> duration.toString,
-			"TIMESTAMP" -> date.toString("%y%m%d%h%s"),
 			"TERMINATION_STATUS_1" -> TerminationStatus.toString(fromTerminationStatus),
 			"TERMINATION_STATUS_2" -> TerminationStatus.toString(toTerminationStatus),
 			"VALUE_1" -> fromValue.toString,
@@ -156,7 +155,8 @@ class CDR(
 			"TYPE" -> CDRType.toString(cdrType),
 			"TRANSIT_TYPE" -> TransitType.toString(transitType),
 			"TAC_1" -> fromTac,
-			"TAC_2" -> toTac
+			"TAC_2" -> toTac,
+			"TIMESTAMP" -> date.toString("YYYY-MM-dd HH:mm:ss")
 		)
 	}
 }

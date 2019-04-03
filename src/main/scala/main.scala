@@ -15,9 +15,14 @@ object CDRSimulation{
 		val sim = new BasicSimulator(
 			new BasicCellsGenerator(10),
 			new HarcodedOperatorsGenerator(),
-			new BasicUsersGenerator(1000000000),
+			new BasicUsersGenerator(1000000),
 			new RandomSocialNetworkGenerator()
 		)
-		sim.simulate(new DateTime).map(_.toString).saveAsTextFile("generated-cdrs")
+		val dateStart = new DateTime(2018, 1, 1, 0, 0, 0, 0)
+		for (daynum <- 0 to 180) {
+			val date = dateStart.plusDays(daynum)
+			// print("alter table toto add partition timestamp=" + date.toString("YYYY-MM-d")) 
+			sim.simulate(date).map(_.toString).saveAsTextFile("cdrs/year=" + date.toString("YYYY") + "/month=" + date.toString("MM") + "/day=" + date.toString("dd"))
+		}
 	}
 }

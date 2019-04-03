@@ -36,7 +36,6 @@ class CDRSpec extends FlatSpec {
 					case "OPERATOR_1" => assert( f == cdr.fromUser.operator.name )
 					case "OPERATOR_2" => assert( f == cdr.toUser.operator.name )
 					case "DURATION" => assert( f == cdr.duration.toString )
-					case "TIMESTAMP" => assert( f == cdr.date.toString("%y%m%d%h%s") )
 					case "TERMINATION_STATUS_1" => assert( f == TerminationStatus.toString(cdr.fromTerminationStatus) )
 					case "TERMINATION_STATUS_2" => assert( f == TerminationStatus.toString(cdr.toTerminationStatus) )
 					case "VALUE_1" => assert( f == cdr.fromValue.toString )
@@ -45,6 +44,7 @@ class CDRSpec extends FlatSpec {
 					case "TRANSIT_TYPE" => assert( f == TransitType.toString(cdr.transitType) )
 					case "TAC_1" => assert( f == cdr.fromTac )
 					case "TAC_2" => assert( f == cdr.toTac)
+					case "TIMESTAMP" => assert( f == cdr.date.toString("YYYY-MM-dd HH:mm:ss") )
 					case s => assert(false, s"The field $s shouldn't be in the header")
 				}
 			}
